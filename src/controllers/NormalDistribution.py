@@ -11,9 +11,10 @@ class NormalDistribution(object):
         self.dispersion = dispersion
 
     def generate(self):
-        self.sample = [self.mathematicalExpect + self.dispersion * sum([i for i in default_rng().random(1000)]) - 6 for
+        self.sample = [self.mathematicalExpect + self.dispersion * (sum([i for i in default_rng().random(12)]) - 6) for
                        j in range(1000)]
-        print(self.sample)
+        # print(self.sample)
+        return self.sample
 
 
 normal = NormalDistribution()
