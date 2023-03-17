@@ -1,5 +1,6 @@
+from src.controllers.LogNormalDistribution import LogNormalDistribution
 from src.controllers.StaticInfoHandler import StaticInfoHandler
 
 if __name__ == '__main__':
-    statistics = StaticInfoHandler()
-    statistics.run()
+    hz = LogNormalDistribution()
+    hz.run()
