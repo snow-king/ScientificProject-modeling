@@ -1,5 +1,5 @@
 import numpy as np
-
+from matplotlib import pyplot as plt
 from numpy.random import default_rng
 
 
@@ -12,7 +12,7 @@ class StaticInfoHandler(object):
     interval: [float]
 
     def __init__(self):
-        self.sample = [i * 3 for i in default_rng().random(1000)]
+        self.sample = [i * 12 for i in default_rng().random(1000)]
 
     def mathematical_expectation(self) -> float:
         expect = 0
@@ -23,7 +23,7 @@ class StaticInfoHandler(object):
 
     def dispersion_calc(self):
         mean = (sum(self.sample) / len(self.sample))
-        expect = sum([d**2 for d in [(v - mean) for v in self.sample]])/ (len(self.sample) - 1)
+        expect = sum([d ** 2 for d in [(v - mean) for v in self.sample]]) / (len(self.sample) - 1)
         self.dispersion = expect
         return self.dispersion
 
@@ -52,8 +52,14 @@ class StaticInfoHandler(object):
     def set_sample(self, list_rand):
         self.sample = list_rand
 
+    def show_hist(self):
+        plt.hist(np.array(self.sample), bins='auto')
+        plt.title("histogram")
+        plt.show()
+
     def run(self):
         self.mathematical_expectation()
         self.dispersion_calc()
         self.rms_calc()
         self.show_results()
+        # self.show_hist()
