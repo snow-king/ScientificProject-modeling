@@ -32,11 +32,11 @@ class LogNormalDistribution(object):
     def generate_sample_y(self):
         normal = NormalDistribution(self.alpha, self.beta)
         self.sampleY = normal.generate()
-        print(self.sampleY)
+        # print(self.sampleY)
 
     def generate_sample_x(self):
         self.sampleX = [math.exp(i) for i in self.sampleY]
-        print(self.sampleX)
+        # print(self.sampleX)
         return self.sampleX
 
     def check_sample(self):
