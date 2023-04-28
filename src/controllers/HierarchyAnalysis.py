@@ -22,7 +22,7 @@ class HierarchyAnalysis(object):
         p_sum = sum(p_avg)
         print(f"sum(П^1/{len(self.judgments)}) = {round(p_sum, 3)}")
         vector_kov = list(map(lambda a: a / p_sum, p_avg))
-        print(f"Вектор КОВ ={list(map(lambda a: round(a, 3), vector_kov))} \nsum = {round(sum(vector_kov), 1)} ")
+        print(f"Вектор КОВ = {list(map(lambda a: round(a, 3), vector_kov))} \nsum = {round(sum(vector_kov), 1)} ")
         return vector_kov
 
 
@@ -77,11 +77,11 @@ print(200 * "-")
 b.append(HierarchyAnalysis(variants_k5).calc())
 
 w = []
-for i in range(len(z)):
+for i in range(len(b)-1):
     w_sum = 0
-    for j in b[i]:
-        w_sum += j * z[i]
+    for j in range(len(z)):
+        w_sum += z[j] * b[j][i]
     w.append(w_sum)
 
-print(list(map(lambda a: round(a, 3), w)))
-print(sum(w))
+print(f'W(интегральный вектор КОВ) : {w}')
+print(f"контрольная сумма = {sum(w)}")

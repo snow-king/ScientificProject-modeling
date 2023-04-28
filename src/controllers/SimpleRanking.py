@@ -21,7 +21,7 @@ class SimpleRanking(object):
     def calc_kow(self):
         self.sum()
         self.kov = [sum(i) / self.full_sum for i in self.judgments]
-        print(f"коэффициентов относительной важности: {self.kov}")
+        print(f"коэффициенты относительной важности: {self.kov}")
         return self.kov
 
     def s_statistics(self):
@@ -35,12 +35,12 @@ class SimpleRanking(object):
         print(f"Коэффициент конкордации {self.concard}")
 
 
-# rank = SimpleRanking([
-#     [3, 4, 4, 3, 4],
-#     [2, 3, 3, 4, 2],
-#     [4, 1, 2, 2, 3],
-#     [1, 2, 1, 1, 1]
-# ])
-# rank.calc_kow()
-# rank.s_statistics()
-# rank.concordance_factor()
+rank = SimpleRanking([
+    [3, 4, 4, 3, 4],
+    [2, 3, 3, 4, 2],
+    [4, 1, 2, 2, 3],
+    [1, 2, 1, 1, 1]
+])
+rank.calc_kow()
+rank.s_statistics()
+rank.concordance_factor()
